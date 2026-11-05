@@ -27,3 +27,5 @@ INSERT INTO objednavky (zakaznik_id, produkt, cena, datum) VALUES
 (1, 'Mobilní telefon', 7000.00, '2024-11-15'),
 (1, 'Notebook', 18000.00, '2026-11-10'),
 (2, 'Monitor', 5000.00, '2024-11-12');
+
+

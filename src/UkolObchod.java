@@ -11,12 +11,10 @@ void main() {
     System.out.println("zadejte email zakaznika");
     String emailVybrany = sc.nextLine();
 
-
-
 // Připojení k databázi
     try (Connection conn = DriverManager.getConnection(url, username, password)) {
         System.out.println("Připojení k databázi bylo úspěšné!");
-// Výpis dat z tabulky
+// Práce s tablkou
         String idZakaznikaSELECT = "SELECT id FROM zakaznici WHERE email = ?";
         String obednavkaSELECT = "SELECT * FROM objednavky WHERE zakaznik_id = ?";
         try (PreparedStatement stmt = conn.prepareStatement(idZakaznikaSELECT)){
