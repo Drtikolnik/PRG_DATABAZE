@@ -4,7 +4,7 @@ import java.util.*;
 void main() {
     Scanner sc = new Scanner(System.in);
 
-    String url = "jdbc:mysql://localhost/hackaton_hra"; // URL databáze: server, port, název DB
+    String url = "jdbc:mysql://localhost/hra2"; // URL databáze: server, port, název DB
     String username = "root"; // Uživatelské jméno
     String password = ""; // Heslo k databázi
 
@@ -12,16 +12,16 @@ void main() {
     String jmenoZadane = sc.nextLine();
 
     System.out.print("Zadej level: ");
-    int levelZadany = sc.nextInt();
+    int levelZadany = sc.nextInt();sc.nextLine();
 
     System.out.print("Zadej zlato: ");
-    int zlatoZadane = sc.nextInt();
+    int zlatoZadane = sc.nextInt();sc.nextLine();
 
 // Připojení k databázi
     try (Connection conn = DriverManager.getConnection(url, username, password)) {
         System.out.println("Připojení k databázi bylo úspěšné!");
 // Výpis dat z tabulky
-        String hracINSERT = "INSERT INTO Hrac (jmeno, level, zlato) VALUES (?, ?, ?)";
+        String hracINSERT = "INSERT INTO hrac (jmeno, level, zlato) VALUES (?, ?, ?)";
 
         try (PreparedStatement stmt = conn.prepareStatement(hracINSERT)){
             stmt.setString(1, jmenoZadane);
@@ -36,6 +36,7 @@ void main() {
             }
         } catch (SQLException e) {
             System.err.println("Problém s SQL.");
+            e.printStackTrace();
         }
 
 
